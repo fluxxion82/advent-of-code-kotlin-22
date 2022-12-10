@@ -1,3 +1,5 @@
+package aoc
+
 import java.io.File
 
 data class ElfFile(val name: String, val size: Long)

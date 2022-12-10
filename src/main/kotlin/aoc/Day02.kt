@@ -1,5 +1,7 @@
-import Result.Companion.getResultFromCode
-import State.Companion.getStateFromCode
+package aoc
+
+import aoc.Result.Companion.getResultFromCode
+import aoc.State.Companion.getStateFromCode
 import java.io.File
 
 enum class State(val codeOne: String, val codeTwo: String) {

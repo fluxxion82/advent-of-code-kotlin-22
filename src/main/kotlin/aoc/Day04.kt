@@ -1,3 +1,5 @@
+package aoc
+
 import java.io.File
 
 fun List<String>.rangeValueStart() = this.first().toInt()

@@ -1,12 +1,18 @@
-import java.io.File
+package aoc.utils
+
 import java.math.BigInteger
 import java.security.MessageDigest
 
 /**
  * Reads lines from the given input txt file.
  */
-fun readInput(name: String) = File("src", "$name.txt")
-    .readLines()
+fun readInput(name: String): List<String> =
+    with(
+        object{}.javaClass.getResourceAsStream(name)
+        ?: ClassLoader.getSystemClassLoader().getResourceAsStream(name)
+    ) {
+        return bufferedReader(Charsets.UTF_8).readLines()
+    }
 
 /**
  * Converts string to md5 hash.

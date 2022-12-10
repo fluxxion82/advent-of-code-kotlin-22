@@ -1,8 +1,10 @@
-import java.io.File
+package aoc
+
+import aoc.utils.readInput
 
 fun main() {
-    fun part1(input: String): Int {
-        val data = input.split("\n\n").map { elf ->
+    fun part1(input: List<String>): Int {
+        val data = input.filterNot { it == "" } .map { elf ->
             elf.lines().map { it.toInt() }
         }
 
@@ -14,10 +16,10 @@ fun main() {
     }
 
     // test if implementation meets criteria from the description, like:
-    val testInput = readInput("Day01")
+    // val testInput = readInput("Day01")
     // check(part1(testInput) == 1)
 
-    val input = readInput("Day01")
+    val input = readInput("Day01.txt")
 
     data class Elf(val id: Int, val calories: MutableList<Int> = mutableListOf()) {
         fun total() = calories.sumOf { it }
@@ -39,9 +41,9 @@ fun main() {
     val winner = elves.first()
     println("elf ${winner.id} with ${winner.total()}")
 
-    val newInput = File("src/Day01.txt").readText()
-    println(part1(newInput))
+    val newInput = readInput("Day01.txt")
+    println(part1(newInput)) // 69836
 
     val topThree = elves.take(3).sumOf { it.total() }
-    println("top three total: $topThree")
+    println("top three total: $topThree") // 207968
 }
